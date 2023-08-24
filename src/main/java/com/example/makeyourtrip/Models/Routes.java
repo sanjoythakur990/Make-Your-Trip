@@ -3,12 +3,11 @@ package com.example.makeyourtrip.Models;
 import com.example.makeyourtrip.Enums.City;
 import com.example.makeyourtrip.Enums.ModeOfTransport;
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 @Entity
 @Table(name="routes")
@@ -16,6 +15,7 @@ import java.util.Date;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
+@Builder
 public class Routes {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -23,6 +23,6 @@ public class Routes {
     private City fromCity;
     private City toCity;
     private String listOfStopsInBetween;
-    private Date tarvelDate;
-    private ModeOfTransport modeOfTransport;
+    @OneToMany(mappedBy = "route",cascade = CascadeType.ALL)
+    private List<Transport> transportList=new ArrayList<>();
 }
