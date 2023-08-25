@@ -2,11 +2,17 @@ package com.example.makeyourtrip.Models;
 
 import com.example.makeyourtrip.Enums.SeatType;
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Entity
 @Table(name = "seats")
 @Data
+@Builder
+@AllArgsConstructor
+@NoArgsConstructor
 public class Seat {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
