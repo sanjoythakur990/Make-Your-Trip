@@ -1,11 +1,13 @@
 package com.example.makeyourtrip.Models;
 
 import jakarta.persistence.*;
+import lombok.Data;
 
 import java.util.Date;
 
 @Entity
 @Table(name = "bookings")
+@Data
 // This will keep a record of already booked seats on a particular date of a particular transportId
 public class Booking {
     @Id

@@ -7,7 +7,9 @@ public class RouteTransformer {
     public static Routes convertDtoToEntity(AddRouteDto addRouteDto){
         Routes routeObj=Routes.builder().fromCity(addRouteDto.getFromCity())
                                     .toCity(addRouteDto.getToCity())
-                                    .listOfStopsInBetween(addRouteDto.getStopsInBetween()).build();
+                                    .listOfStopsInBetween(addRouteDto.getStopsInBetween())
+                                    .modeOfTransport(addRouteDto.getModeOfTransport())
+                                    .build();
         return routeObj;
     }
 }

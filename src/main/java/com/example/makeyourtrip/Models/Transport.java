@@ -22,10 +22,12 @@ public class Transport {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer transportId;
+    @Enumerated(value = EnumType.STRING)
     private ModeOfTransport modeOfTransport;
     private LocalDate journeyDate;
     private LocalTime startTime;
     private double journeyTime;
+    private String companyName;
     @ManyToOne
     @JoinColumn
     private Routes route;

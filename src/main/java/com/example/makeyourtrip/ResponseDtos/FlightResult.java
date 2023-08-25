@@ -1,17 +1,16 @@
-package com.example.makeyourtrip.RequestDTOs;
+package com.example.makeyourtrip.ResponseDtos;
 
-import com.example.makeyourtrip.Enums.ModeOfTransport;
+import lombok.Builder;
 import lombok.Data;
 
 import java.time.LocalDate;
 import java.time.LocalTime;
-
 @Data
-public class AddTransportDto {
-    private ModeOfTransport modeOfTransport;
+@Builder
+public class FlightResult {
     private LocalDate journeyDate;
     private LocalTime startTime;
     private double journeyTime;
-    private Integer routeId;
     private String companyName;
+    private String listOfStopsInBetween;
 }
