@@ -18,14 +18,14 @@ public class SeatService {
     public String addFlightSeats(AddFlightSeatDto seatDto){
         Transport transport=transportRepository.findById(seatDto.getTransportId()).get();
         for(int i=1;i<=seatDto.getNoOfEconomySeats();i++){
-            Seat seat=Seat.builder().seatNo(String.valueOf(i)).seatType(SeatType.ECONOMY).price(seatDto.getPriceOfEconomySeat())
+            Seat seat=Seat.builder().seatNo("E"+i).seatType(SeatType.ECONOMY).price(seatDto.getPriceOfEconomySeat())
                                     .transport(transport).build();
             // bidirectional mapping
             transport.getSeatList().add(seat);
         }
 
         for(int i=1;i<=seatDto.getNoOfBusinessSeats();i++){
-            Seat seat=Seat.builder().seatNo(String.valueOf(i)).seatType(SeatType.BUSINESS).price(seatDto.getPriceOfBusinessSeat())
+            Seat seat=Seat.builder().seatNo("B"+i).seatType(SeatType.BUSINESS).price(seatDto.getPriceOfBusinessSeat())
                     .transport(transport).build();
             // bidirectional mapping
             transport.getSeatList().add(seat);
