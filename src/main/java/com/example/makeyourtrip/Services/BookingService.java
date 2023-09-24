@@ -61,7 +61,9 @@ public class BookingService {
         ticketEntity.setBooking(booking);
         user.getBookingList().add(booking);
         transport.getBookings().add(booking);
-        // save karo bsdk
+        // save karo
+        bookingRepository.save( booking);
+        return "Booking made successfully";
     }
     private TicketEntity createTicketEntity(Transport transport, BookingRequest bookingRequest){
         Integer totalPricePaid=findTotalPricePaid(transport,bookingRequest.getSeatNos());
